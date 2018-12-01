@@ -3,9 +3,6 @@ var router = express.Router();
     PostController = require('../controllers/PostController');
 
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
 router.get('/', PostController.getAll);
 

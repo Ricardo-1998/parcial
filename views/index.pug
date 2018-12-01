@@ -10,10 +10,10 @@ block content
   
   form(class="postForm" action='/api/microcontroladores' name='form'  method='post')
     .row
-      input(type="text" placeholder="campo1")
-      input(type="text" placeholder="campo2")
-      input(type="text" placeholder="campo3")
-      a(id="boton " class="waves-effect waves-light btn") Guardar
+      input(type="text" placeholder="campo1" name="materia" id="materia" value='')
+      input(type="text" placeholder="campo2" name="uv" id="uv" value='')
+      input(type="text" placeholder="campo3" name="descripcion" id="descripcion" value='')
+      input(type="submit" value="Submit")
 
   table
     thead
@@ -22,6 +22,7 @@ block content
         th Materia
         th UV
         th Descripcion
+        th Opciones
       
       tbody(class="post")
 
@@ -30,5 +31,3 @@ block content
 
 
 
-  //<i class="fas fa-pencil-alt"></i>
-  //<i class="fas fa-eraser"></i>

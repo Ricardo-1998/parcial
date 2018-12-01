@@ -5,29 +5,13 @@ window.onload = () =>{
 let app = {
     init:function(){
         this.addEvents();
-        this.loadContent();
+        //this.loadContent();
     },
     addEvents: function(){
         
-        document.getElementsByClassName["postForm"].addEventListener("submit", (event)=>{
+        document.getElementsByClassName("postForm")[0].addEventListener("submit", (event)=>{
             this.submitPost(event, this.addRow);
         });
-    },
-    loadContent:function(){
-        fetch('/api/microcontroladores',{
-            method:'GET'
-        })
-        .then(res => {
-            return res.json();
-        })
-        .then(data=>{
-            if(data.ok){
-                data.posts.forEach(element => {
-                    this.addRow(element)
-                });
-            }
-            
-        })
     },
 
     addRow: function(){
@@ -67,9 +51,9 @@ let app = {
     submitPost: (event,addRow)=>{
         event.preventDefault();
         let data =[
-            materia =  document.postForm.value,
-            uv =  document.postForm.value,
-            descripcion =  document.postForm.value
+            materia =  document.getElementsByClassName("postForm")[0].value,
+            uv =  document.getElementsByClassName("postForm")[0].value,
+            descripcion =  document.getElementsByClassName("postForm")[0].value
         ]
 
         fetch('/api/microcontroladores',{
@@ -86,7 +70,23 @@ let app = {
                 console.log("fallo aqui");
             }
         })
-    }
+    },
+    loadContent:function(){
+        fetch('api/microcontroladores',{
+            method:'GET'
+        })
+        .then(res => {
+            return res.json()
+        })
+        .then(data=>{
+            if(data.ok){
+                data.posts.forEach(element => {
+                    this.addRow(element)
+                });
+            }
+            
+        })
+    },
 
 
 };

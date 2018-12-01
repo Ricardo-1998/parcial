@@ -9,12 +9,14 @@ PostController.create = function(req,res){
         descripcion:req.body.descripcion
     }
     if(data.materia && data.uv && data.descripcion && data.materia !='' && data.uv !='' && data.descripcion!=''){
+
         let nuevaPublicacion = new modelo(data);
         nuevaPublicacion.save(function(err,guardado){
             if(err){
                 status = 500;
                 res.JSON({code:500,err});
             }else{
+                
                 res.JSON({ok:true, msg:'gg wp se logro guarrdar', guardado});
             }
         })
@@ -43,7 +45,8 @@ PostController.update = function(req,res){
             status = 500;
             res.JSON({code:500,err});
         }else{
-            res.JSON({ok:true, old, update});
+            code = 200;
+            res.JSON({ok:true,code, old, update});
         }
     });
 
@@ -53,17 +56,20 @@ PostController.get = function(req,res){
     modelo.findOne({
         _id:req.params.id, function(err,publicacion){
             if(err){
-                status = 500;
+                code = 500;
                 res.JSON({code:500,err});
             }else{
-                res.JSON({ok:true, publicacion});
+                code = 200;
+                res.JSON({ok:true,code, publicacion});
             }
         }
     });
 };
 
 PostController.getAll = function(req,res){
+    
     modelo.find({}, function(err,publicacion){
+        
         if(err){
             status = 500;
             res.JSON({code:500,err});
