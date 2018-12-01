@@ -7,8 +7,28 @@ block content
       a(href="#" class="brand-logo") Administrador de microcontroladores
         i(class="fab fa-jedi-order" style="margin-left:20px") 
         
-      ul(id="nav-mobile" class="right hide-on-med-and-down")
-        li
-          a(href="sass.html") Sass
-        
+  
+  form(class="postForm" action='/api/microcontroladores' name='form'  method='post')
+    .row
+      input(type="text" placeholder="campo1")
+      input(type="text" placeholder="campo2")
+      input(type="text" placeholder="campo3")
+      a(id="boton " class="waves-effect waves-light btn") Guardar
+
+  table
+    thead
+      tr
+        th ID
+        th Materia
+        th UV
+        th Descripcion
       
+      tbody(class="post")
+
+
+    
+
+
+
+  //<i class="fas fa-pencil-alt"></i>
+  //<i class="fas fa-eraser"></i>

@@ -1,5 +1,5 @@
 const modelo = require('../modules/post');
-const moongose = require('mongoose');
+//const moongose = require('mongoose');
 const PostController = {}
 
 PostController.create = function(req,res){
@@ -15,7 +15,7 @@ PostController.create = function(req,res){
                 status = 500;
                 res.JSON({code:500,err});
             }else{
-                res.JSON({ok:true, msg:'gg wp se logro guarrdar', guardado})
+                res.JSON({ok:true, msg:'gg wp se logro guarrdar', guardado});
             }
         })
     }
@@ -27,7 +27,7 @@ PostController.delete = function(req,res){
             status = 500;
             res.JSON({code:500,err});
         }else{
-            res.JSON({ok:true, msg:'gg wp se logro eliminar', eliminado})
+            res.JSON({ok:true, msg:'gg wp se logro eliminar', eliminado});
         }
     });
 };
@@ -43,7 +43,7 @@ PostController.update = function(req,res){
             status = 500;
             res.JSON({code:500,err});
         }else{
-            res.JSON({ok:true, old, update})
+            res.JSON({ok:true, old, update});
         }
     });
 
@@ -56,7 +56,7 @@ PostController.get = function(req,res){
                 status = 500;
                 res.JSON({code:500,err});
             }else{
-                res.JSON({ok:true, publicacion})
+                res.JSON({ok:true, publicacion});
             }
         }
     });
@@ -75,4 +75,4 @@ PostController.getAll = function(req,res){
 };
 
 
-modelu.exports = PostController;
+module.exports = PostController;
