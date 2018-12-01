@@ -36,8 +36,8 @@ let app = {
         
         tr.innerHTML =`<td> ${data.id} </td> <td> ${data.materia} </td> <td> ${data.uv} </td> <td> ${data.descripcion} </td>
                         <td>
-                            <a href="#" class="delete"> delete </a>
-                            <a href="#" class="update"> update </a>
+                            <a href="#" class="delete"> <i class="fas fa-pencil-alt"></i> </a>
+                            <a href="#" class="update"> <i class="fas fa-eraser"></i> </a>
                         </td>`
         tr.getElementsByClassName("delete")[0].addEventListener("click", (event)=>{
             this.deletePost(event,data,tr,tbody);
